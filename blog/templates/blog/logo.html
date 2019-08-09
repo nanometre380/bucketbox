@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+
+
+
+<html>
+{% extends 'base.html' %}
+
+{% block content %}
+{% load staticfiles %}
+  <head>
+
+      <title> 홈으로 가주세요~! </title>
+
+  </head>
+
+  <body>
+    
+
+     <a href="{%url 'home' %}"> <image src="{% static 'full.PNG' %}" height ="400" ></a>
+
+     <p>insert coin을 눌러주세요!</p>
+
+  </body>
+
+
+{% endblock %}
+
+</html>
+
+
