@@ -28,8 +28,8 @@ urlpatterns = [
     #path()
     path('<int:blog_id>/delete', blog.views.delete, name='delete'),
     path('<int:blog_id>/edit', blog.views.edit, name='edit'),
-
-    path('blog/', include('blog.urls')),
+    path('create/', blog.views.create, name='create'),
+    #path('blog/', include('blog.urls')),
 #    path('portfolio/', include('portfolio.urls')),
     path('accounts/', include('accounts.urls')),
 
