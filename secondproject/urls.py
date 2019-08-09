@@ -26,7 +26,7 @@ urlpatterns = [
     path('', blog.views.logo, name='logo'),
     path('blog/',blog.views.show_blogs, name='home'),
     #path()
-    path('<int:blog_id>/delete', blog.views.delete, name='delete'),
+    path('<int:blog_id>/complete', blog.views.complete, name='complete'),
     path('<int:blog_id>/edit', blog.views.edit, name='edit'),
     path('create/', blog.views.create, name='create'),
     #path('blog/', include('blog.urls')),

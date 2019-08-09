@@ -35,10 +35,11 @@ def show_blogs(request):
     image4 =''
     for blog in blogs.all():
         if blog.author == request.user:
-            title = blog.title
-            author = blog.author
-            body = blog.body
-            L.append(body)
+            if blog.complete == False:
+                title = blog.title
+                author = blog.author
+                body = blog.body
+                L.append(body)
 
     if L == []:
         L = ['empty']
@@ -60,10 +61,11 @@ def show_blogs(request):
         image4 = 'image4'
     return render(request, 'blog/home.html', {'random_result': random_result, 'blogs': blogs, 'imageminus':imageminus, 'image0':image0, 'image1':image1, 'image2':image2, 'image3':image3, 'image4':image4})
 
-def delete(request, blog_id):
+def complete(request, blog_id):
     blog = Blog.objects.get(id=blog_id)
-    blog.delete()
-    return redirect('/')
+    blog.complete = True
+    blog.save()
+    return redirect('/blog')
 
 def edit(request, blog_id):
     blog = Blog.objects.get(id=blog_id)
